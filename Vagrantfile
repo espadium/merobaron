@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant::Config.run do |config|
-  config.vm.box = "osl"
+  config.vm.box = "merobaron"
   config.vm.network :hostonly, "192.168.134.8"
   config.vm.share_folder("repo", "/app", ".")
   config.vm.forward_port 9292, 9292
