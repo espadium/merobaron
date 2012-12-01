@@ -3,7 +3,12 @@ class Merobaron < Padrino::Application
   register Padrino::Mailer
   register Padrino::Helpers
 
-  enable :sessions
+  use Rack::Session::Cookie, secret: "OSCARMAMON",
+                                key: 'rack.session',
+                             domain: 'foo.com',
+                               path: '/',
+                       expire_after: 2592000, # In seconds
+                             secret: 'change_me'
 
   ##
   # Caching support
@@ -41,6 +46,8 @@ class Merobaron < Padrino::Application
   #
   #   configure :development do
   #     set :foo, :bar
+        set :raise_errors, true       # Raise exceptions (will stop application) (default for test)
+        set :show_exceptions, true    # Shows a stack trace in browser (default for development)
   #     disable :asset_stamp # no asset timestamping for dev
   #   end
   #
