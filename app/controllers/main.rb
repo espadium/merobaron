@@ -21,4 +21,9 @@ Merobaron.controllers :main do
   get :index, map: "/" do
     haml :'index'
   end
+
+  get :mapa, map: "/mapa" do
+    haml :'map/index'
+  end
+
 end
