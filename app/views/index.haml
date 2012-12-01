@@ -2,3 +2,6 @@
 %h2 Y ahora que hago? 
 %p El 60% de las personas no realizan la denuncia policial, ayudanos entre todos a cambiar esto y hacer nuestra ciudad un lugar mas seguro.
 %a denunciar
+%h1 Preguntas
+- @questions.each do |question|
+  = haml :'helpers/question', locals:{ question: question }
