@@ -19,6 +19,7 @@ Merobaron.controllers :main do
   # end
 
   get :index, map: "/" do
+    @questions = Question.all
     haml :'index'
   end
 

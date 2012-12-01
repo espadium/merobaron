@@ -1,0 +1,4 @@
+.question{ class: question.name }
+  %h3 #{question.label}
+  - @question.each do |item|
+    = haml :'helpers/_item', locals: { item: item }
