@@ -26,6 +26,8 @@ h1 span { margin: 0; color: #DC143C; }
 
 h2 { font-size: 40px; }
 
+.information a { display: block; }
+
 #content { margin: 0 auto; padding: 50px 0; width: 800px; position: relative; }
 
 .map-container { height: 250px; position: relative; z-index: 9999; -moz-animation: shrink-me 2s forwards 1; -webkit-animation: shrink-me 2s forwards 1; }
