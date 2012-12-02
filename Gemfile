@@ -10,6 +10,7 @@ gem 'sinatra-flash', :require => 'sinatra/flash'
 # Component requirements
 gem 'bcrypt-ruby', :require => "bcrypt"
 gem 'haml'
+gem 'sass'
 gem 'pg'
 gem 'sequel'
 

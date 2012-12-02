@@ -1,4 +1,5 @@
 class Merobaron < Padrino::Application
+  register SassInitializer
   register Padrino::Rendering
   register Padrino::Mailer
   register Padrino::Helpers
@@ -40,15 +41,12 @@ class Merobaron < Padrino::Application
   # disable :flash                # Disables sinatra-flash (enabled by default if Sinatra::Flash is defined)
   layout  :base            
 
-  ##
-  # You can configure for a specified environment like:
-  #
-  #   configure :development do
-  #     set :foo, :bar
-        set :raise_errors, true       # Raise exceptions (will stop application) (default for test)
-        set :show_exceptions, true    # Shows a stack trace in browser (default for development)
-  #     disable :asset_stamp # no asset timestamping for dev
-  #   end
+  configure :development do
+    set :foo, :bar
+    set :raise_errors, true       # Raise exceptions (will stop application) (default for test)
+    set :show_exceptions, true    # Shows a stack trace in browser (default for development)
+    disable :asset_stamp # no asset timestamping for dev
+  end
   #
 
   ##
