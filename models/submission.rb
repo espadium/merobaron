@@ -13,4 +13,8 @@ class Submission < Sequel::Model
     opts.merge( {:include => { items: { only: label } } } )
     super(opts)
   end
+
+  def has_item?(item_name)
+    items.map(&:name).includes?(item_name)
+  end
 end
