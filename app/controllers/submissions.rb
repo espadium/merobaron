@@ -1,6 +1,7 @@
 require 'json'
 Merobaron.controllers :submissions do
-  post :create, "/submissions" do
+
+  post :create, "/submissions/new" do
     @submission = Submission.new(params[:submission])
     
     if @submission.save
@@ -11,9 +12,10 @@ Merobaron.controllers :submissions do
         @submission.add_item(item) unless item.nil?
         @submission.save
       end
-      "OK"
+
+      redirect "/submissions/#{@submission.id}"
     else
-      "NOK"
+      redirect :back
     end
   end
 
