@@ -19,8 +19,8 @@ Merobaron.controllers :main do
   # end
 
   get :index, map: "/" do
-    @questions = Question.all
-    haml :'index'
+    questions = Question.all
+    haml :'index', locals: { questions: questions }
   end
 
   get :mapa, map: "/mapa" do
