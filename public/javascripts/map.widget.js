@@ -4,6 +4,7 @@ $.widget("meRobaron.mapWidget", {
         self = this;
         this.mapWrapper = $("#map-wrapper");
         this.latLangField = $("#latLang");
+        this.seccionalNumber = $("#seccionalNumber");
 
         //load google map;
         var latlng = new google.maps.LatLng(-34.886952,-56.126281);
@@ -12,11 +13,40 @@ $.widget("meRobaron.mapWidget", {
           center: latlng,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
+
         this.map = new google.maps.Map(document.getElementById("map-wrapper"),
             mapOptions);
 
+       for ( idx in seccionales.Document.Folder.Placemark ){
+          var seccional = seccionales.Document.Folder.Placemark[idx];
+          var seccionalNumber = seccional.Polygon.outerBoundaryIs.LinearRing.seccionalNumber;
+          var seccionalChords = [];
+
+          for (chord_idx in seccional.Polygon.outerBoundaryIs.LinearRing.coordinates){
+              var chord = seccional.Polygon.outerBoundaryIs.LinearRing.coordinates[chord_idx];
+
+              var g_chord = new google.maps.LatLng(chord[1], chord[0]);
+              seccionalChords.push(g_chord);
+          }
+
+          seccionalPolygon = new google.maps.Polygon({
+            paths: seccionalChords,
+            title: seccionalNumber,
+            strokeColor: "#FF0000",
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: "#FF0000",
+            fillOpacity: 0.1
+          });
+
+          seccionalPolygon.setMap(self.map); 
+          google.maps.event.addListener(seccionalPolygon, 'click', function( event ){
+              self.seccionalNumber.attr("value",this.title);
+          });
+        }
+
+
         google.maps.event.addListener(this.map, 'click', function( event ){
-            //alert( "Latitude: "+event.latLng.lat()+" "+", longitude: "+event.latLng.lng() ); 
             if (self.marker){
               self.marker.setMap(null);
             }
