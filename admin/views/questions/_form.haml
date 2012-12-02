@@ -1,28 +1,63 @@
 .group
   =f.label :title
   =f.error_message_on :title
-  ~f.text_area :title, :class => :text_area
-  %span.description Ex: a simple text
+  ~f.text_field :title
 
 .group
   =f.label :name
   =f.error_message_on :name
-  ~f.text_area :name, :class => :text_area
-  %span.description Ex: a simple text
+  ~f.text_field :name
 
 .group
   =f.label :label
   =f.error_message_on :label
-  ~f.text_area :label, :class => :text_area
-  %span.description Ex: a simple text
+  ~f.text_field :label
 
 .group
   =f.label :section
   =f.error_message_on :section
-  ~f.text_area :section, :class => :text_area
-  %span.description Ex: a simple text
+  ~f.text_field :section
+
+.group
+  =f.label :order
+  =f.error_message_on :order
+  ~f.text_field :order
+
+.group
+  %label Items 
+  .group.options-list
+    %a.button.add Add other option
+    -unless items.nil?
+      -items.each do |item|
+        .option-group 
+          %input{ name:"options[]id", value: item.id, type:"hidden" }
+          %label Title
+          %input{ name:"options[]title", value: item.title }
+          %label Name
+          %input{ name:"options[]name", value: item.name }
+          %label Label
+          %input{ name:"options[]label", value: item.label }
+    -else
+      .option-group 
+        %label Title
+        %input{ name:"options[]title" }
+        %label Name
+        %input{ name:"options[]name" }
+        %label Label
+        %input{ name:"options[]label" }
 
 
 .group.navform.wat-cf
   =f.submit pat(:save), :class => :button
   =f.submit pat(:cancel), :onclick => "window.location='#{url(:questions, :index)}';return false", :class => :button
+
+  :javascript
+    $(function(){
+      $(".options-list .button.add").click(function(e){
+        e.preventDefault();
+          var new_option = $($(this).siblings(".option-group")[0]).clone();
+          new_option.children("input[type=hidden]").remove();
+          new_option.children("input").val("");
+          $(this).parent().append(new_option);
+      });
+    });

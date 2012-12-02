@@ -13,6 +13,10 @@ Admin.controllers :questions do
   post :create do
     @question = Question.new(params[:question])
     if (@question.save rescue false)
+      params[:options].each do |option|
+        option = Item.new(option.merge({question_id: @question.id}))
+        option.save
+      end
       flash[:notice] = 'Question was successfully created.'
       redirect url(:questions, :edit, :id => @question.id)
     else
@@ -28,6 +32,18 @@ Admin.controllers :questions do
   put :update, :with => :id do
     @question = Question[params[:id]]
     if @question.modified! && @question.update(params[:question])
+
+      params[:options].each do |option|
+        if option["id"].nil?
+          new_options = option.merge({question_id: params[:id]}).delete_if{|k,v| k==:id}
+          option = Item.new(new_options)
+          option.save
+        else
+          item = Item[option["id"].to_i]
+          item.update(option.delete_if{|k,v| k == "id" })
+        end
+      end
+
       flash[:notice] = 'Question was successfully updated.'
       redirect url(:questions, :edit, :id => @question.id)
     else

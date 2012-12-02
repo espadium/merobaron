@@ -17,11 +17,12 @@ Admin.controllers :information do
   post :create do
     @information = Information.new(params[:information])
 
-    if (@information.valid? rescue false)
-
-      items = params.extract { |key, val| key if key.to_s.includes?("item_") }
+    if (@information.save rescue false)
+      @information.remove_all_items
+      items = params.select! { |key, val| key if key.to_s.include?("item_") && !val.blank? }
       items.each do |key, val|
-        @information.add_item(Item[val])
+        item = Item[val]
+        @information.add_item(item) 
       end
 
       @information.save
@@ -41,6 +42,15 @@ Admin.controllers :information do
   put :update, :with => :id do
     @information = Information[params[:id]]
     if @information.modified! && @information.update(params[:information])
+      @information.remove_all_items
+      items = params.select! { |key, val| key if key.to_s.include?("item_") && !val.blank? }
+      items.each do |key, val|
+        item = Item[val]
+        @information.add_item(item) 
+      end
+
+      @information.save
+
       flash[:notice] = 'Information was successfully updated.'
       redirect url(:information, :edit, :id => @information.id)
     else

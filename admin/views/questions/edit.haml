@@ -10,6 +10,6 @@
       =mt(:question)
     .inner
       -form_for :question, url(:questions, :update, :id => @question.id), :method => :put, :class => :form do |f|
-        =partial "questions/form", :locals => { :f => f }
+        =partial "questions/form", :locals => { :f => f, :items => @question.items }
 
 -content_for :sidebar, partial("base/sidebar")

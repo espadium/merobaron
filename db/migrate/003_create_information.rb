@@ -1,6 +1,6 @@
 Sequel.migration do
   up do
-    create_table :information do
+    create_table :informations do
       primary_key :id
       String :title
       String :label
@@ -10,6 +10,6 @@ Sequel.migration do
   end
 
   down do
-    drop_table :information
+    drop_table :informations
   end
 end
