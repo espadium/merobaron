@@ -24,7 +24,7 @@ h1 { font-size: 120px; text-align: center; }
 
 h1 span { margin: 0; color: #DC143C; }
 
-h2 { font-size: 40px; text-shadow: 1px -1px white; }
+h2 { font-size: 40px; }
 
 #content { margin: 0 auto; padding: 50px 0; width: 800px; position: relative; }
 
@@ -39,7 +39,7 @@ h2 { font-size: 40px; text-shadow: 1px -1px white; }
 .question-content label { display: inline; font-size: 18px; font-weight: bold; }
 .question-content div[class^="subitem"] { margin-left: 25px; }
 
-.hero-unit { padding: 28px; box-shadow: 2px 2px 0px rgba(255, 255, 255, 0.1) inset, 1px 1px 3px rgba(0, 0, 0, 0.5); }
+.hero-unit { padding: 28px; box-shadow: 2px 2px 0px rgba(255, 255, 255, 0.1) inset, 1px 1px 3px black; }
 
 /*
 .color-0 { background-color: #f47f31; }
@@ -49,14 +49,14 @@ h2 { font-size: 40px; text-shadow: 1px -1px white; }
 .color-4 { background-color: #ffdc28; }
 .color-5 { background-color: #47b3d1; }
 */
-.color-0 { background-color: rgba(244, 127, 49, 0.5); }
+.color-0 { background-color: #f47f31; }
 
-.color-1 { background-color: rgba(26, 131, 198, 0.5); }
+.color-1 { background-color: #1a83c6; }
 
-.color-2 { background-color: rgba(231, 54, 56, 0.5); }
+.color-2 { background-color: #e73638; }
 
-.color-3 { background-color: rgba(95, 189, 96, 0.5); }
+.color-3 { background-color: #5fbd60; }
 
-.color-4 { background-color: rgba(255, 220, 40, 0.5); }
+.color-4 { background-color: #ffdc28; }
 
-.color-5 { background-color: rgba(71, 179, 209, 0.5); }
+.color-5 { background-color: #47b3d1; }
