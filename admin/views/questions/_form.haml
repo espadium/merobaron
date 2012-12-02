@@ -1,26 +1,27 @@
 .group
   =f.label :title
   =f.error_message_on :title
-  ~f.text_area :title, :class => :text_area
-  %span.description Ex: a simple text
+  ~f.text_field :title
 
 .group
   =f.label :name
   =f.error_message_on :name
-  ~f.text_area :name, :class => :text_area
-  %span.description Ex: a simple text
+  ~f.text_field :name
 
 .group
   =f.label :label
   =f.error_message_on :label
-  ~f.text_area :label, :class => :text_area
-  %span.description Ex: a simple text
+  ~f.text_field :label
 
 .group
   =f.label :section
   =f.error_message_on :section
-  ~f.text_area :section, :class => :text_area
-  %span.description Ex: a simple text
+  ~f.text_field :section
+
+.group
+  =f.label :order
+  =f.error_message_on :order
+  ~f.text_field :order
 
 .group
   %label Items 
