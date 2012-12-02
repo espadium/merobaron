@@ -1,3 +1,4 @@
+body { background: url('/images/bg.png') repeat; }
 h1, h2 { margin: 1.2em 0 .6em; }
 h2 { font-size: 22px; }
 #content { margin: 0 auto; padding: 50px 0; width: 800px; }
@@ -9,4 +10,14 @@ h2 { font-size: 22px; }
   label { display: inline; }
   div[class^="subitem"] { margin-left: 25px; }
 }
-.hero-unit{ padding: 28px; }
+.hero-unit { padding: 28px; box-shadow: 2px 2px 0px rgba(255, 255, 255, 0.1) inset, 1px 1px 3px rgba(0, 0, 0, 0.5); }
+/*
+.color-0 { background-color: #f47f31; }
+.color-1 { background-color: #5fbd60; }
+.color-2 { background-color: #e73638; }
+.color-3 { background-color: #1a83c6; }
+*/
+.color-0 { background-color: rgba(244, 127, 49, 0.5); }
+.color-1 { background-color: rgba(26, 131, 198, 0.5); }
+.color-2 { background-color: rgba(231, 54, 56, 0.5); }
+.color-3 { background-color: rgba(95, 189, 96, 0.5); }
