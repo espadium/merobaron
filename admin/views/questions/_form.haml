@@ -1,0 +1,28 @@
+.group
+  =f.label :title
+  =f.error_message_on :title
+  ~f.text_area :title, :class => :text_area
+  %span.description Ex: a simple text
+
+.group
+  =f.label :name
+  =f.error_message_on :name
+  ~f.text_area :name, :class => :text_area
+  %span.description Ex: a simple text
+
+.group
+  =f.label :label
+  =f.error_message_on :label
+  ~f.text_area :label, :class => :text_area
+  %span.description Ex: a simple text
+
+.group
+  =f.label :section
+  =f.error_message_on :section
+  ~f.text_area :section, :class => :text_area
+  %span.description Ex: a simple text
+
+
+.group.navform.wat-cf
+  =f.submit pat(:save), :class => :button
+  =f.submit pat(:cancel), :onclick => "window.location='#{url(:questions, :index)}';return false", :class => :button
