@@ -3,7 +3,7 @@ require 'padrino-core/cli/rake'
 PadrinoTasks.init
 
 questions = [
-  { title: "Sexo victima", name: "sexo_victima", label: "Sos hombre o mujer?", order: 1, 
+  { title: "Sexo victima", name: "sexo_victima", label: "Sos hombre o mujer?", order: 1,
     items: [
       { title: "Hombre", name: "victima_hombre", label: "Hombre" },
       { title: "Mujer", name: "victima_mujer", label: "Mujer" }
@@ -16,7 +16,7 @@ questions = [
       { title: "Robo violento", name: "robo_violento", label: "Me robaron violentamente" }
     ]
   },
-  { title: "Perpetradores", name: "perpetradores", label: "Quien/quienes te atacaron?", order: 4,
+  { title: "Perpetradores", name: "perpetradores", label: "Quien/quienes te atacaron?", order: 4, 
     items: [
       { title: "Perpetrador Hombre", name: "perpetrador_hombre", label: "Un hombre" },
       { title: "Perpetrador Mujer", name: "perptrador_mujer", label: "Una mujer" },
@@ -26,7 +26,7 @@ questions = [
 
     ]
   },
-  { title: "Que arrebataron", name: "que_arrebataron", label: "Que te arrebataron?", order: 5,
+  { title: "Que arrebataron", name: "que_arrebataron", label: "Que te arrebataron?", order: 5, is_multi_option?: true,
     items: [
       { title: "Celular", name: "celular", label: "Celular" },
       { title: "Pasaporte", name: "pasaporte", label: "Pasaporte" },
