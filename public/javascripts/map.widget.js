@@ -6,6 +6,7 @@ $.widget("meRobaron.mapWidget", {
         this.latitudeField = $("#lat");
         this.logitudField = $("#long");
         this.seccionalNumber = $("#seccionalNumber");
+        this.colors = ["#e73638", "#1a83c6", "#254725", "#5fbd60"];
 
         //load google map;
         var latlng = new google.maps.LatLng(-34.886952,-56.126281);
@@ -33,10 +34,10 @@ $.widget("meRobaron.mapWidget", {
           seccionalPolygon = new google.maps.Polygon({
             paths: seccionalChords,
             title: seccionalNumber,
-            strokeColor: "#FF0000",
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: "#FF0000",
+            strokeColor: "#eaeaea",
+            strokeOpacity: 0.1,
+            strokeWeight: 1,
+            fillColor: self.colors[idx % 3],
             fillOpacity: 0.1
           });
 
@@ -69,6 +70,11 @@ $.widget("meRobaron.mapWidget", {
 
         google.maps.event.addListener(this.map, 'click', function( event ){
           });
+      },
+      getRandomColor: function(){
+        var col =self.colors[Math.floor(Math.random() * (3 - 1)) + 0];
+        console.log(col);
+        return col;
       },
 
 });
