@@ -3,6 +3,7 @@
   %head
     %title title
     %script{ src: "/javascripts/jquery-1.8.3.js" }
+    %script{ src: "/seccionales.js" }
     %script{ src: "/javascripts/jquery-ui-1.9.2.custom.min.js" }
     %script{ src: "/javascripts/map.widget.js" }
     %script{ type: "text/javascript", src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyA3T24ZN-sLBOFlfPcPS8FzGJy2KSdCvpE&sensor=false" }
@@ -13,6 +14,7 @@
         %input.autocomplete-street{ type: "text", placeholder: "Calle" }
         %input.autocomplete-street{ type: "text", placeholder: "Esquina" }
         %input#latLang{ type: "hidden" }
+        %input#seccionalNumber{ type: "hidden" }
 
     :javascript
       $(function(){
