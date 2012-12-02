@@ -3,7 +3,8 @@ $.widget("meRobaron.mapWidget", {
 
         self = this;
         this.mapWrapper = $("#map-wrapper");
-        this.latLangField = $("#latLang");
+        this.latitudeField = $("#lat");
+        this.logitudField = $("#long");
         this.seccionalNumber = $("#seccionalNumber");
 
         //load google map;
@@ -41,28 +42,32 @@ $.widget("meRobaron.mapWidget", {
 
           seccionalPolygon.setMap(self.map); 
           google.maps.event.addListener(seccionalPolygon, 'click', function( event ){
+
               self.seccionalNumber.attr("value",this.title);
+
+              if (self.marker){
+                self.marker.setMap(null);
+              }
+              var marker = new google.maps.Marker({
+                position: event.latLng,
+                draggable:true,
+                animation: google.maps.Animation.DROP,
+                title:"Aqui me robaron!"
+              });
+
+              var latlang = +event.latLng.lat()+","+event.latLng.lng(); 
+
+              // To add the marker to the map, call setMap();
+              marker.setMap(self.map);
+              self.marker = marker;
+              self.logitudField.attr("value",event.latLng.lng());
+              self.latitudeField.attr("value",event.latLng.lat());
           });
+
         }
 
 
         google.maps.event.addListener(this.map, 'click', function( event ){
-            if (self.marker){
-              self.marker.setMap(null);
-            }
-            var marker = new google.maps.Marker({
-              position: event.latLng,
-              draggable:true,
-              animation: google.maps.Animation.DROP,
-              title:"Aqui me robaron!"
-            });
-
-            var latlang = +event.latLng.lat()+","+event.latLng.lng(); 
-
-            // To add the marker to the map, call setMap();
-            marker.setMap(self.map);
-            self.marker = marker;
-            self.latLangField.attr("value",latlang);
           });
       },
 

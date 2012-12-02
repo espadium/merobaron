@@ -12,3 +12,5 @@ h2 { font-size: 22px; }
 .question-content input[type=checkbox] { display: inline; margin: 0; }
 .question-content label { display: inline; }
 .question-content div[class^="subitem"] { margin-left: 25px; }
+
+.hero-unit { padding: 28px; }

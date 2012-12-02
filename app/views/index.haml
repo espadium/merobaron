@@ -3,13 +3,29 @@
   %h2 Y ahora que hago? 
   %p El 60% de las personas no realizan la denuncia policial, ayudanos entre todos a cambiar esto y hacer nuestra ciudad un lugar mas seguro.
   #when-where-wrapper.question-wrapper.hero-unit
-    %h2 Ubicacion y Tiempo
+    %h2 
+      <i class="icon-map-marker"></i>
+      Ubicacion y Tiempo
     .question-content.row-fluid
       .left.span7
-        .map-container.well
+        #map-field.map-container.well
+          %div#map-wrapper{ style: "height:100%;width:100%;" }
+          %div.fields
+            %input#lat{ type: "hidden" }
+            %input#long{ type: "hidden" }
+            %input#seccionalNumber{ type: "hidden" }
+
       .right.span5
         %h2 Cuando?
         .ui-datepicker.well
+
+    :javascript
+      $(function(){
+          $("#map-field").mapWidget();
+          $('.ui-datepicker').datetimepicker({
+            dateFormat: "yy-mm-dd",
+          });
+      });
     
   .question-wrapper.hero-unit
     %h2 Que te paso?
@@ -38,5 +54,3 @@
         %label{ for: 'camara' } Una Camara
     
   %a.btn Denunciar
-  - @questions.each do |question|
-    = haml :'helpers/_question', locals:{ question: question }
