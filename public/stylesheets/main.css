@@ -1,1 +1,14 @@
-body { background-color: #BADA55; }
+h1, h2 { margin: 1.2em 0 .6em; }
+
+h2 { font-size: 22px; }
+
+#content { margin: 0 auto; padding: 50px 0; width: 800px; }
+
+.map-container { height: 250px; }
+
+.question-wrapper > h2 { margin-top: 0; }
+
+.question-content div[class^="item"] { margin-bottom: 10px; }
+.question-content input[type=checkbox] { display: inline; margin: 0; }
+.question-content label { display: inline; }
+.question-content div[class^="subitem"] { margin-left: 25px; }

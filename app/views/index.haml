@@ -1,6 +1,42 @@
-%h1 Me robaron 
-%h2 Y ahora que hago? 
-%p El 60% de las personas no realizan la denuncia policial, ayudanos entre todos a cambiar esto y hacer nuestra ciudad un lugar mas seguro.
-%a denunciar
-- @questions.each do |question|
-  = haml :'helpers/_question', locals:{ question: question }
+#content
+  %h1 Me robaron 
+  %h2 Y ahora que hago? 
+  %p El 60% de las personas no realizan la denuncia policial, ayudanos entre todos a cambiar esto y hacer nuestra ciudad un lugar mas seguro.
+  #when-where-wrapper.question-wrapper.hero-unit
+    %h2 Ubicacion y Tiempo
+    .question-content.row-fluid
+      .left.span7
+        .map-container.well
+      .right.span5
+        %h2 Cuando?
+        .ui-datepicker.well
+    
+  .question-wrapper.hero-unit
+    %h2 Que te paso?
+    .question-content
+      .item-1
+        %input{ name: 'rapina', type: 'checkbox' }
+        %label{ for: 'rapina' } Me Rapinaron
+        .subitem-1
+          %input{ name: 'subitem', type: 'checkbox' }
+          %label{ for: 'subitem' } Subitem
+      .item-2
+        %input{ name: 'robo', type: 'checkbox' }
+        %label{ for: 'robo' } Me Robaron
+        .subitem-1
+          %input{ name: 'subitem', type: 'checkbox' }
+          %label{ for: 'subitem' } Subitem
+
+  .question-wrapper.hero-unit
+    %h2 Que perdiste?
+    .question-content
+      .item-1
+        %input{ name: 'celular', type: 'checkbox' }
+        %label{ for: 'celular' } El Celular
+      .item-2
+        %input{ name: 'camara', type: 'checkbox' }
+        %label{ for: 'camara' } Una Camara
+    
+  %a.btn Denunciar
+  - @questions.each do |question|
+    = haml :'helpers/_question', locals:{ question: question }
