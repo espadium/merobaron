@@ -1,7 +1,7 @@
 Admin.controllers :information do
 
   before do
-    @question_options = Question.order(:title).map{ |question| [question.label, question.items.map { |item| [item.label, item.name] } ] }
+    @question_options = Question.order(:title).map{ |question| [question.label, question.items.map { |item| [item.label, item.id] } ] }
   end
 
   get :index do
@@ -16,7 +16,16 @@ Admin.controllers :information do
 
   post :create do
     @information = Information.new(params[:information])
-    if (@information.save rescue false)
+
+    if (@information.valid? rescue false)
+
+      items = params.extract { |key, val| key if key.to_s.includes?("item_") }
+      items.each do |key, val|
+        @information.add_item(Item[val])
+      end
+
+      @information.save
+
       flash[:notice] = 'Information was successfully created.'
       redirect url(:information, :edit, :id => @information.id)
     else
