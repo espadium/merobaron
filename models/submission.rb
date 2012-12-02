@@ -17,4 +17,8 @@ class Submission < Sequel::Model
   def has_item?(item_name)
     items.map(&:name).includes?(item_name)
   end
+
+  def informations
+    self.items.map(&:informations).flatten
+  end
 end
