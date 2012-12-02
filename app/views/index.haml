@@ -18,13 +18,13 @@
 
         .right.span5
           %h2 Cuando?
-          %input.datepicker.well{name: "happened_at"}
+          %input.datepicker.well{name: "submission[happened_at]"}
 
       
     - questions.each_with_index do |question, index|
       = haml :'helpers/_question', locals: { question: question, color_index: index }, layout: false
       
-    %input.btn.btn-danger.btn-large.pull-right{type: "submit", value: "Denunciar"}
+    %input.btn.btn-info.btn-large.pull-right{type: "submit", value: "Denunciar"}
 
 :javascript
   $(function(){
