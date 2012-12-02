@@ -9,8 +9,9 @@
 }
 
 body { background: url('/images/bg.png') repeat; }
-h1, h2 { margin: 1.2em 0 .6em; }
-h2 { font-size: 22px; text-shadow: 1px -1px white; }
+h1, h2 { margin: 1.2em 0 .6em; font-family: "BenchNine", monospace; }
+h1 { font-size: 120px; text-align: center; text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2), -2px -2px 0 #FFFFFF; text-transform: uppercase; }
+h2 { font-size: 40px; text-shadow: 1px -1px white; }
 #content { margin: 0 auto; padding: 50px 0; width: 800px; }
 .map-container { height: 250px; position: relative; z-index: 9999;
   -moz-animation: shrink-me 2s forwards 1;
@@ -21,8 +22,8 @@ h2 { font-size: 22px; text-shadow: 1px -1px white; }
 .question-wrapper > h2 { margin-top: 0; }
 .question-content {
   div[class^="item"] { margin-bottom: 10px; }
-  input[type=checkbox] { display: inline; margin: 0; }
-  label { display: inline; }
+  input[type=checkbox] { display: inline; margin: 0 0 2px; }
+  label { display: inline; font-size: 18px; font-weight: bold; }
   div[class^="subitem"] { margin-left: 25px; }
 }
 .hero-unit { padding: 28px; box-shadow: 2px 2px 0px rgba(255, 255, 255, 0.1) inset, 1px 1px 3px rgba(0, 0, 0, 0.5); }
