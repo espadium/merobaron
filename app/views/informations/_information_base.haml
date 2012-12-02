@@ -1,3 +1,3 @@
 .information{ class: information.name } 
   %h3 #{information.title}
-  = information.body
+  = markdown_to_html(information.body)
