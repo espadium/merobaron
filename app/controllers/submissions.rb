@@ -2,7 +2,7 @@ Merobaron.controllers :submissions do
   post :create, "/submissions" do
     @submission = Submission.new(params[:submission])
     
-    if @submission.save rescue false
+    if @submission.save
       items = params.select! { |key, val| key if key.to_s.include?("item_") && !val.blank? }
         
       items.each do |key, item_id|
