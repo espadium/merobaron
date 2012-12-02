@@ -26,7 +26,7 @@ questions = [
 
     ]
   },
-  { title: "Que arrebataron", name: "que_arrebataron", label: "Que te arrebataron?", order: 5, is_multi_option?: true,
+  { title: "Que arrebataron", name: "que_arrebataron", label: "Que te arrebataron?", order: 5, is_multi_option: true,
     items: [
       { title: "Celular", name: "celular", label: "Celular" },
       { title: "Pasaporte", name: "pasaporte", label: "Pasaporte" },
@@ -59,7 +59,10 @@ questions = [
 questions.each do |data|
   old = Question.where(name:data[:name]).first
   old.delete unless old.nil?
-  q = Question.new(title:data[:title], name:data[:name], label:data[:label])
+  q = Question.new(title:data[:title], name:data[:name], label:data[:label], is_multi_option:data[:is_multi_option])
+p "+++++++++++++++++++++++++++++++++++++++++++++++++"
+p q
+p data
   q.save
   data[:items].each do |item|
     item = Item.new(title:item[:title], name:item[:name], label:item[:label])
