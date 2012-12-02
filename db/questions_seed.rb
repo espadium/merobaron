@@ -23,7 +23,6 @@ questions = [
       { title: "Perpetradores varios Hombre", name: "perptradores_hombres", label: "Varios hombres" },
       { title: "Perpetradores varios Mujer", name: "perptradores_mujer", label: "Varias mujeres" },
       { title: "Perpetrador varios", name: "perptradores_varios", label: "Varias personas de dferente sexo" },
-
     ]
   },
   { title: "Que arrebataron", name: "que_arrebataron", label: "Que te arrebataron?", order: 5, is_multi_option: true,

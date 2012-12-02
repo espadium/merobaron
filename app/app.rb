@@ -4,13 +4,6 @@ class Merobaron < Padrino::Application
   register Padrino::Mailer
   register Padrino::Helpers
 
-  use Rack::Session::Cookie, secret: "OSCARMAMON",
-                                key: 'rack.session',
-                             domain: 'foo.com',
-                               path: '/',
-                       expire_after: 2592000, # In seconds
-                             secret: 'change_me'
-
   ##
   # Caching support
   #

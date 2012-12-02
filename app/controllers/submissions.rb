@@ -19,6 +19,13 @@ Merobaron.controllers :submissions do
     end
   end
 
+  get :show, "/submissions/:id" do
+    @submission = Submission[params[:id]]
+    redirect "/" if @submission.nil?
+
+    haml :'/submissions/show'
+  end
+
   get :submissions_by_station, "/submissions/:station_number/:start_date/:end_date" do
     if params[:station_number].blank? || params[:station_number].to_i > 20 || params[:station_number].to_i < 1
       status 403
