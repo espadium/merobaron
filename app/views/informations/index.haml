@@ -1,6 +1,8 @@
 .informations-list
-  - @informations.each do |info|
-    %h2 #{info.label}
+  - @informations.each do |information|
+    %h2 #{information.label}
     %p
-      = info.body
+      = information.body
+    %p
+      %a{ href: "/information/#{information.id}/edit" } Edit
     %hr
