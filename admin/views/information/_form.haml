@@ -22,11 +22,18 @@
   ~f.text_area :body, :class => :text_area
   %span.description Ex: a simple text
 
-%button{ type: 'button', onclick: 'add_related_item();' } Agregar otra respuesta relacionada 
 .related_items
-  .group.first
+  .group
     =f.label "Item relacionado"
-    =f.select("item_1", grouped_options: @question_options)
+    =select_tag("item_1", include_blank: true, grouped_options: @question_options, selected: (@information.items[0].id unless @information.items[0].nil?) )
+    %br
+  .group
+    =f.label "Item relacionado 2"
+    =select_tag("item_2", include_blank: true, grouped_options: @question_options, selected: (@information.items[1].id unless @information.items[1].nil?) )
+    %br
+  .group
+    =f.label "Item relacionado 3"
+    =select_tag("item_3", include_blank: true, grouped_options: @question_options, selected: (@information.items[2].id unless @information.items[2].nil?) )
     %br
 
 .group.navform.wat-cf
