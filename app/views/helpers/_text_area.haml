@@ -1,9 +1,0 @@
-.field.textarea
-  %label #{options[:label]}
-  %textarea{ name: options[:name] }
-    = options[:value]
-  - unless options[:errors].nil? || options[:errors].empty?
-    .error
-      %ul
-        - options[:errors].each do |error|
-          %li #{error}

@@ -1,8 +1,0 @@
-.field.text
-  %label #{options[:label]}
-  %input{ type: options[:type], name: options[:name], value: options[:value] }
-  - unless options[:errors].nil? || options[:errors].empty?
-    .error
-      %ul
-        - options[:errors].each do |error|
-          %li #{error}
