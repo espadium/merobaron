@@ -1,3 +1,5 @@
-.item{ class: item.name }
+%div{ class: "item-#{item.id} #{item.name}" }
   %input{ type: 'hidden', name: "#{question.name}[#{item.name}]", value: "false" }
   %input{ type: 'checkbox', name: "#{question.name}[#{item.name}]", value: "false" }
+  %label{ for: "#{question.name}[#{item.name}]" } 
+    = item.label

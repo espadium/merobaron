@@ -1,4 +1,6 @@
-.question{ class: question.name }
-  %h3 #{question.label}
+.question-wrapper.hero-unit{ class: question.name }
+  %h2 
+    = question.label
   - question.items.each do |item|
-    = haml :'helpers/_item', locals: { item: item }
+    .question-content
+      = haml :'helpers/_item', locals: { item: item, question: question }, layout: false
