@@ -1,5 +1,3 @@
 %h1 A continuacion detallaremos la informacion que te podemos facilitar 
   - if @submission.informations.each do |information|
-    .information{ class: information.name } 
-      %h3 #{information.title}
-      = information.body
+    = haml :'informations/_information', locals: { information: information }
