@@ -3,14 +3,30 @@ require 'padrino-core/cli/rake'
 PadrinoTasks.init
 
 questions = [
-  { title: "Que paso", name: "que_paso", label: "Que te paso?", 
+  { title: "Sexo victima", name: "sexo_victima", label: "Sos hombre o mujer?", order: 1, 
+    items: [
+      { title: "Hombre", name: "victima_hombre", label: "Hombre" },
+      { title: "Mujer", name: "victima_mujer", label: "Mujer" }
+    ]
+  },
+  { title: "Que paso", name: "que_paso", label: "Que te paso?", order: 2,
     items: [
       { title: "Robo", name: "robo", label: "Me robaron sin darme cuenta" },
       { title: "Agresion", name: "agresion", label: "Me agredieron" },
       { title: "Robo violento", name: "robo_violento", label: "Me robaron violentamente" }
     ]
   },
-  { title: "Que arrebataron", name: "que_arrebataron", label: "Que te arrebataron?", 
+  { title: "Perpetradores", name: "perpetradores", label: "Quien/quienes te atacaron?", order: 4,
+    items: [
+      { title: "Perpetrador Hombre", name: "perpetrador_hombre", label: "Un hombre" },
+      { title: "Perpetrador Mujer", name: "perptrador_mujer", label: "Una mujer" },
+      { title: "Perpetradores varios Hombre", name: "perptradores_hombres", label: "Varios hombres" },
+      { title: "Perpetradores varios Mujer", name: "perptradores_mujer", label: "Varias mujeres" },
+      { title: "Perpetrador varios", name: "perptradores_varios", label: "Varias personas de dferente sexo" },
+
+    ]
+  },
+  { title: "Que arrebataron", name: "que_arrebataron", label: "Que te arrebataron?", order: 5,
     items: [
       { title: "Celular", name: "celular", label: "Celular" },
       { title: "Pasaporte", name: "pasaporte", label: "Pasaporte" },
@@ -20,12 +36,29 @@ questions = [
       { title: "Libreta de conducir", name: "libreta_conducir", label: "Libreta de conducir" },
       { title: "Tarjetas de banco", name: "tarjetas_banco", label: "Tarjetas banco" },
       { title: "Tarjetas de credito", name: "tarjetas_de_credito", label: "Tarjetas de credito" },
-      { title: "Libreta de conducir", name: "libreta_conducir", label: "Libreta de conducir" }
+      { title: "Libreta de conducir", name: "libreta_conducir", label: "Libreta de conducir" },
+      { title: "Llaves", name: "llaves", label: "Llaves" }
+    ]
+  },
+  { title: "Utilizaron algun arma", name: "arma", label: "Se utilizo algun tipo de arma?", order: 6,
+    items: [
+      { title: "Arma Blanca", name: "arma_blanca", label: "Arma blanca" },
+      { title: "Arma de Fuego", name: "arma_de_fuego", label: "Arma de fuego" }
+    ]
+  },
+  { title: "Testigos", name: "testigos", label: "Habia alguien cerca?", order: 7,
+    items: [
+      { title: "Un amigo", name: "un_amigo_testigo", label: "Si, un amigo/a" },
+      { title: "Varios conocidos", name: "varios_testigos_conocidos", label: "Si, habian varios conocidos" },
+      { title: "Desconocidos", name: "testigos_desconocidos", label: "Si, habia otras personas pero no las conocia" },
+      { title: "Solo", name: "sin_testigos", label: "No, estaba solo" }
     ]
   }
 ]
 
 questions.each do |data|
+  old = Question.where(name:data[:name]).first
+  old.delete unless old.nil?
   q = Question.new(title:data[:title], name:data[:name], label:data[:label])
   q.save
   data[:items].each do |item|

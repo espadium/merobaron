@@ -1,12 +1,20 @@
+@-moz-keyframes stretch-me { 0% { width: 385px; }
+  100% { width: 700px; } }
+
+@-moz-keyframes shrink-me { 0% { width: 700px; }
+  100% { width: 385px; } }
+
 body { background: url("/images/bg.png") repeat; }
 
 h1, h2 { margin: 1.2em 0 .6em; }
 
-h2 { font-size: 22px; }
+h2 { font-size: 22px; text-shadow: 1px -1px white; }
 
 #content { margin: 0 auto; padding: 50px 0; width: 800px; }
 
-.map-container { height: 250px; }
+.map-container { height: 250px; position: relative; z-index: 9999; -moz-animation: shrink-me 2s forwards 1; }
+
+.map-container:hover { -moz-animation: stretch-me 2s forwards 1; }
 
 .question-wrapper > h2 { margin-top: 0; }
 
