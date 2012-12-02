@@ -2,7 +2,7 @@
   %h1 Me robaron 
   %h2 Y ahora que hago? 
   %p El 60% de las personas no realizan la denuncia policial, ayudanos entre todos a cambiar esto y hacer nuestra ciudad un lugar mas seguro.
-  %form{method:"POST",targer:"/submissions"}
+  %form{ method: "POST", action:"/submissions/new"}
     #when-where-wrapper.question-wrapper.hero-unit.color-3
       %h2 
         <i class="icon-map-marker"></i>
@@ -18,19 +18,19 @@
 
         .right.span5
           %h2 Cuando?
-          %input.ui-datepicker.well{name: "happened_at"}
+          %input.datepicker.well{name: "happened_at"}
 
       
     - questions.each_with_index do |question, index|
       = haml :'helpers/_question', locals: { question: question, color_index: index }, layout: false
       
-    %input.btn.btn-danger{type: "submit", value: "Denunciar"}
+    %input.btn.btn-danger.btn-large.pull-right{type: "submit", value: "Denunciar"}
 
 :javascript
   $(function(){
     $("#map-field").mapWidget();
 
-    $('.ui-datepicker').datetimepicker({
+    $('.datepicker').datetimepicker({
       dateFormat: "yy-mm-dd",
     });
   });

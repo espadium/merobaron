@@ -8,6 +8,16 @@
   100% { width: 385px; }
 }
 
+@-webkit-keyframes stretch-me {
+  0% { width: 385px; }
+  100% { width: 700px; }
+}
+
+@-webkit-keyframes shrink-me {
+  0% { width: 700px; }
+  100% { width: 385px; }
+}
+
 body { background: url('/images/bg.png') repeat; }
 h1, h2 { margin: 1.2em 0 .6em; font-family: "BenchNine", monospace; }
 h1 { font-size: 120px; text-align: center; text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2), -2px -2px 0 #FFFFFF; text-transform: uppercase; }
@@ -15,9 +25,11 @@ h2 { font-size: 40px; text-shadow: 1px -1px white; }
 #content { margin: 0 auto; padding: 50px 0; width: 800px; }
 .map-container { height: 250px; position: relative; z-index: 9999;
   -moz-animation: shrink-me 2s forwards 1;
+  -webkit-animation: shrink-me 2s forwards 1;
 }
 .map-container:hover {
   -moz-animation: stretch-me 2s forwards 1;
+  -webkit-animation: stretch-me 2s forwards 1;
 }
 .question-wrapper > h2 { margin-top: 0; }
 .question-content {

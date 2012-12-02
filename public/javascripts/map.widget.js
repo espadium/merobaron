@@ -13,7 +13,15 @@ $.widget("meRobaron.mapWidget", {
         var mapOptions = {
           zoom: 12,
           center: latlng,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          disableDefaultUI: true,
+          panControl: false,
+          zoomControl: true,
+          mapTypeControl: false,
+          scaleControl: false,
+          streetViewControl: false,
+          overviewMapControl: false
+
         };
 
         this.map = new google.maps.Map(document.getElementById("map-wrapper"),
