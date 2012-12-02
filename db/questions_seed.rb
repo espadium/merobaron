@@ -3,7 +3,7 @@ require 'padrino-core/cli/rake'
 PadrinoTasks.init
 
 questions = [
-  { title: "Sexo victima", name: "sexo_victima", label: "Sos hombre o mujer?", order: 1, 
+  { title: "Sexo victima", name: "sexo_victima", label: "Sos hombre o mujer?", order: 1,
     items: [
       { title: "Hombre", name: "victima_hombre", label: "Hombre" },
       { title: "Mujer", name: "victima_mujer", label: "Mujer" }
@@ -16,7 +16,7 @@ questions = [
       { title: "Robo violento", name: "robo_violento", label: "Me robaron violentamente" }
     ]
   },
-  { title: "Perpetradores", name: "perpetradores", label: "Quien/quienes te atacaron?", order: 4,
+  { title: "Perpetradores", name: "perpetradores", label: "Quien/quienes te atacaron?", order: 4, 
     items: [
       { title: "Perpetrador Hombre", name: "perpetrador_hombre", label: "Un hombre" },
       { title: "Perpetrador Mujer", name: "perptrador_mujer", label: "Una mujer" },
@@ -25,7 +25,7 @@ questions = [
       { title: "Perpetrador varios", name: "perptradores_varios", label: "Varias personas de dferente sexo" },
     ]
   },
-  { title: "Que arrebataron", name: "que_arrebataron", label: "Que te arrebataron?", order: 5,
+  { title: "Que arrebataron", name: "que_arrebataron", label: "Que te arrebataron?", order: 5, is_multi_option: true,
     items: [
       { title: "Celular", name: "celular", label: "Celular" },
       { title: "Pasaporte", name: "pasaporte", label: "Pasaporte" },
@@ -58,7 +58,10 @@ questions = [
 questions.each do |data|
   old = Question.where(name:data[:name]).first
   old.delete unless old.nil?
-  q = Question.new(title:data[:title], name:data[:name], label:data[:label])
+  q = Question.new(title:data[:title], name:data[:name], label:data[:label], is_multi_option:data[:is_multi_option])
+p "+++++++++++++++++++++++++++++++++++++++++++++++++"
+p q
+p data
   q.save
   data[:items].each do |item|
     item = Item.new(title:item[:title], name:item[:name], label:item[:label])
