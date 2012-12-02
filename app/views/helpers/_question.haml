@@ -1,4 +1,4 @@
-.question-wrapper.hero-unit{ class: question.name }
+.question-wrapper.hero-unit{ class: "#{question.name} color-#{color_index}" }
   %h2 
     = question.label
   - question.items.each do |item|
