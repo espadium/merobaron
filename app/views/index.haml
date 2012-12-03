@@ -5,7 +5,7 @@
 %section#hints
   .inner-section.row-fluid
     .column.span4
-      %h2 Y ahora que hago? 
+      %h2 Y ahora qu&eacute; hago? 
     .column.span8
       %p Responde las siguientes preguntas del cuestionario para que podamos ayudarte con tu reciente mal infortunio. Al completar este formulario b&aacute;scio que nos aporte mas datos de tu siniestro, te proporcionaremos datos y acconares que te ayuden y orienten.
 
@@ -14,7 +14,7 @@
     %form{ method: "POST", action:"/submissions/new"}
       #when-where-wrapper.question-wrapper
         %h2 
-          Ubicacion y Tiempo
+          Ubicaci&oacute;n y Tiempo
         .question-content.row-fluid
           .left.span7
             #map-field.map-container.well
@@ -25,7 +25,7 @@
                 %input#seccionalNumber{ type: "hidden", name: "submission[station_number]" }
 
           .right.span5
-            %h2 Cuando?
+            %h2 Cu&aacute;ndo?
             %input.datepicker.well{name: "submission[happened_at]"}
 
       - questions.each_with_index do |question, index|
