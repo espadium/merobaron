@@ -10,7 +10,7 @@ class Submission < Sequel::Model
   end
 
   def to_json(opts = {})
-    opts.merge( {:include => { items: { only: label } } } )
+    opts.merge( {:include => { items: { only: :label } } } )
     super(opts)
   end
 

@@ -90,7 +90,8 @@ $.widget("meRobaron.mapStatsWidget", {
         this.mapWrapper = $("#map-wrapper");
         this.start_date = $(".datepicker.start");
         this.end_date = $(".datepicker.end");
-        
+        this.markers = [];
+
         $('.datepicker').datepicker({
           dateFormat: "yy-mm-dd",
         });
@@ -160,15 +161,24 @@ $.widget("meRobaron.mapStatsWidget", {
 
       reloadData: function(data){
           for (i in data){
-              if(data[i].lat && data[i]long){
-                var latlang = +event.latLng.lat()+","+event.latLng.lng(); 
+              submission = data[i]
+              if(submission.lat && submission.long){
+                var latlng = new google.maps.LatLng(submission.lat, submission.long);
                 // To add the marker to the map, call setMap();
+                var marker = new google.maps.Marker({
+                  position: latlng,
+                  draggable:true,
+                  title: submission.happened_at
+                });
+
                 marker.setMap(self.map);
-                self.marker = marker;
+
+                self.markers[i] = marker;
               }
           }
           console.log(data);
       },
+
       getRandomColor: function(){
         var col =self.colors[Math.floor(Math.random() * (3 - 1)) + 0];
         console.log(col);
