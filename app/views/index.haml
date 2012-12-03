@@ -1,30 +1,37 @@
-#content
-  %img.logo{ src: "/images/logo_126px.png" }
-  %h1 #{'<span>me</span>robaron.com'} 
-  .subtitle comunidades seguras, concientes y sin miedo.
-  %h2 Y ahora que hago? 
-  %form{ method: "POST", action:"/submissions/new"}
-    #when-where-wrapper.question-wrapper.hero-unit.color-3
-      %h2 
-        <i class="icon-map-marker"></i>
-        Ubicacion y Tiempo
-      .question-content.row-fluid
-        .left.span7
-          #map-field.map-container.well
-            %div#map-wrapper{ style: "height:100%;width:100%;" }
-            %div.fields
-              %input#lat{ type: "hidden",  name: "submission[lat]" }
-              %input#long{ type: "hidden", name: "submission[long]" }
-              %input#seccionalNumber{ type: "hidden", name: "submission[station_number]" }
+%header
+  #header-content
+    %a#main-logo
 
-        .right.span5
-          %h2 Cuando?
-          %input.datepicker.well{name: "submission[happened_at]"}
+%section#hints
+  .inner-section.row-fluid
+    .column.span4
+      %h2 Y ahora que hago? 
+    .column.span8
+      %p Responde las siguientes preguntas del cuestionario para que podamos ayudarte con tu reciente mal infortunio. Al completar este formulario b&aacute;scio que nos aporte mas datos de tu siniestro, te proporcionaremos datos y acconares que te ayuden y orienten.
 
-    - questions.each_with_index do |question, index|
-      = haml :'helpers/_question', locals: { question: question, color_index: index }, layout: false
-      
-    %input.btn.btn-info.btn-large.pull-right{type: "submit", value: "Denunciar"}
+%section#forms
+  #content.inner-section
+    %form{ method: "POST", action:"/submissions/new"}
+      #when-where-wrapper.question-wrapper
+        %h2 
+          Ubicacion y Tiempo
+        .question-content.row-fluid
+          .left.span7
+            #map-field.map-container.well
+              %div#map-wrapper{ style: "height:100%;width:100%;" }
+              %div.fields
+                %input#lat{ type: "hidden",  name: "submission[lat]" }
+                %input#long{ type: "hidden", name: "submission[long]" }
+                %input#seccionalNumber{ type: "hidden", name: "submission[station_number]" }
+
+          .right.span5
+            %h2 Cuando?
+            %input.datepicker.well{name: "submission[happened_at]"}
+
+      - questions.each_with_index do |question, index|
+        = haml :'helpers/_question', locals: { question: question, color_index: index }, layout: false
+        
+      %input#denuncia.btn.btn-info.btn-large.pull-right{type: "submit", value: "Denunciar"}
 
 :javascript
   $(function(){

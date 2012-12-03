@@ -1,3 +1,7 @@
+// MIXINS
+@mixin centered { margin: 0 auto; width: 960px; }
+
+// KEYFRAMES
 @-moz-keyframes stretch-me {
   0% { width: 385px; }
   100% { width: 700px; }
@@ -17,18 +21,40 @@
   0% { width: 700px; }
   100% { width: 385px; }
 }
-.logo { position: absolute; }
+
+
+// FONTS
+
+@font-face {
+    font-family: YanoneKaffeesatz;
+    src: url('/fonts/YanoneKaffeesatz-Regular.otf');
+    font-weight:400;
+}
+
+
+// COMMON 
+
+* { font-family: YanoneKaffeesatz, monospace; }
+body > section { position: relative; padding: 50px 0; width: 100%; margin-bottom: 20px; }
+.inner-section { @include centered; }
+.column { border-right: 1px solid #1f79b1; padding: 25px; }
+.column:last-child { border: none; }
+
+// APP
+
+header { width: 100%; margin-bottom: 20px; background: white; border-bottom: #dc143c solid; overflow: auto; padding: 25px 0 40px; }
+header #header-content { @include centered; }
+a#main-logo { display: block; width: 639px; height: 151px; background: url("/images/logo.png") no-repeat; }
 .subtitle { top: 150px; left: 130px; font-size: 20px; position: absolute; }
 #content h1 { top: -110px; position: relative; left: -10px; }
 body { background: url('/images/bg.png') repeat; }
-h1, h2 { margin: 1.2em 0 .6em; font-family: "BenchNine", monospace; }
+h1, h2 { margin: 1.2em 0 .6em; }
 h1 { font-size: 120px; text-align: center; }
 h1 span { margin:0; color: #DC143C }
 h2 { font-size: 40px; }
 .information {
   a { display:block; }
 }
-#content { margin: 0 auto; padding: 50px 0; width: 800px; position: relative; }
 .map-container { height: 250px; position: relative; z-index: 9999;
   -moz-animation: shrink-me 2s forwards 1;
   -webkit-animation: shrink-me 2s forwards 1;
@@ -37,11 +63,12 @@ h2 { font-size: 40px; }
   -moz-animation: stretch-me 2s forwards 1;
   -webkit-animation: stretch-me 2s forwards 1;
 }
-.question-wrapper > h2 { margin-top: 0; }
+.question-wrapper > h2 { margin-top: 0; margin-bottom: 35px; }
 .question-content {
   div[class^="item"] { margin-bottom: 10px; }
-  input[type=checkbox] { display: inline; margin: 0 0 2px; }
-  label { display: inline; font-size: 18px; font-weight: bold; }
+  input[type=checkbox],
+  input[type=radio] { display: inline; margin: 0 0 4px !important; }
+  label { display: inline; font-size: 25px; font-weight: bold; margin-left: 20px; }
   div[class^="subitem"] { margin-left: 25px; }
 }
 .hero-unit { padding: 28px; box-shadow: 2px 2px 0px rgba(255, 255, 255, 0.1) inset, 1px 1px 3px rgba(0, 0, 0, 1); }
@@ -54,3 +81,17 @@ h2 { font-size: 40px; }
 .color-5 { background-color: #47b3d1; }
 */
 
+// HINTS SECTION
+section#hints { border-bottom: 1px solid #d2d2d2; }
+section#hints .column { border: none; }
+section#hints .column:last-child { border-left: 1px solid #1f79b1; }
+section#hints .column h2 { margin: 0; }
+section#hints .column p { font-size: 18px; }
+
+// FORMS SECTION
+.question-wrapper { padding: 60px 0; border-bottom: 1px solid #1f79b1; }
+.question-wrapper > h2 { font-size: 30px; text-align: center; text-transform: uppercase; padding-left: 38px; background: url("/images/blue-dot.png") no-repeat 0 center; }
+
+.question-wrapper.sexo_victima { background: url('/images/hombre-mujer.png') no-repeat 300px center; padding-bottom: 120px; }
+
+#denuncia { margin: 80px 0; }
