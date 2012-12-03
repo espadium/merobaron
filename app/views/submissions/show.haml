@@ -1,3 +1,7 @@
-%h1 Informacion 
-- @submission.informations.each do |information|
-  = haml render_information_template(information), locals: { information: information }
+%section#submissions
+  .inner-section
+    %h1 Informacion 
+    %h2 Esto es lo que pod&eacute;s hacer para solucionarlo:
+    - @submission.informations.each do |information|
+      = haml render_information_template(information), locals: { information: information }, layout: false
+    %h4 Esperamos que sean de utilidad.
