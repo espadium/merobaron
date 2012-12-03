@@ -5,7 +5,7 @@
     %ul
       - @suggestions.each do |s|
         %li #{s}
-    %h4 Ac&aacute; te dejamos la informaci&oacute;n necesaria para llevar adelante todos los tramites necesarios:
+    %h2 Ac&aacute; te ofrecemos informaci&oacute;n para contribuir a solucionar tu problema:
     - @submission.informations.each do |information|
       = haml render_information_template(information), locals: { information: information }, layout: false
     %h4 Esperamos que sean de utilidad.
