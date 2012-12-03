@@ -47,9 +47,9 @@ questions = [
   },
   { title: "Testigos", name: "testigos", label: "Habia alguien cerca?", order: 7,
     items: [
-      { title: "Un amigo", name: "un_amigo_testigo", label: "Si, un amigo/a" },
-      { title: "Varios conocidos", name: "varios_testigos_conocidos", label: "Si, habian varios conocidos" },
-      { title: "Desconocidos", name: "testigos_desconocidos", label: "Si, habia otras personas pero no las conocia" },
+      { title: "Un amigo", name: "un_amigo_testigo", label: "Si, un amigo/a", suggestion: "Es posible que tu amigo pueda ser llamado como testigo, deberias comentarselo y preguntarle si esta dispuesto a hacerlo, en el caso de que sea necesario" },
+      { title: "Varios conocidos", name: "varios_testigos_conocidos", label: "Si, habian varios conocidos", suggestion: "Es posible que tus amigos puedan ser llamados como testigos, deberias comentarselo y preguntarles si estarian dispuestos a hacerlo, en el caso de que sea necesario" },
+      { title: "Desconocidos", name: "testigos_desconocidos", label: "Si, habia otras personas pero no las conocia", suggestion: "Es probable que la policia te pregunte sobre como eran las personas que presenciaron el incidente. Seria de utilidad que anotes todo lo que recuerdes de ellos si es que tienes pensado ir mas tarde u otro dia." },
       { title: "Solo", name: "sin_testigos", label: "No, estaba solo" }
     ]
   }
