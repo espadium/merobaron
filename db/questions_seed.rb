@@ -59,9 +59,6 @@ questions.each do |data|
   old = Question.where(name:data[:name]).first
   old.delete unless old.nil?
   q = Question.new(title:data[:title], name:data[:name], label:data[:label], is_multi_option:data[:is_multi_option])
-p "+++++++++++++++++++++++++++++++++++++++++++++++++"
-p q
-p data
   q.save
   data[:items].each do |item|
     item = Item.new(title:item[:title], name:item[:name], label:item[:label])
