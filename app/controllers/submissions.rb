@@ -22,6 +22,7 @@ Merobaron.controllers :submissions do
   get :show, "/submissions/:id" do
     @submission = Submission[params[:id]]
     redirect "/" if @submission.nil?
+    @suggestions = @submission.items.map(&:suggestion).select { |s| s unless s.nil? }
 
     haml :'/submissions/show'
   end
