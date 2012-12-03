@@ -71,7 +71,7 @@ section#hints .column { border: none; }
 
 section#hints .column:last-child { border-left: 1px solid #1f79b1; }
 
-section#hints .column h2 { margin: 0; }
+section#hints .column h2 { margin: 0; text-align: center; }
 
 section#hints .column p { font-size: 18px; }
 
