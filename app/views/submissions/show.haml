@@ -1,10 +1,11 @@
 %section#submissions
   .inner-section
     %h1 Informacion 
-    %h4 Sugerencias
-    %ul
-      - @suggestions.each do |s|
-        %li #{s}
+    - unless @suggestions.empty?
+      %h4 Sugerencias
+      %ul
+        - @suggestions.each do |s|
+          %li #{s}
     %h2 Ac&aacute; te ofrecemos informaci&oacute;n para contribuir a solucionar tu problema:
     - @submission.informations.each do |information|
       = haml render_information_template(information), locals: { information: information }, layout: false

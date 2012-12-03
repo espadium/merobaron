@@ -87,4 +87,4 @@ section#hints .column p { font-size: 18px; }
 
 section#submissions .information { width: 500px; margin: 0 auto; float: none; padding: 25px 0; border-bottom: solid 1px #1f79b1; }
 
-section#submissions h1, section#submissions h2, section#submissions h4 { text-align: center; }
+section#submissions h1, section#submissions h2, section#submissions h3, section#submissions h4 { text-align: center; }
