@@ -81,6 +81,18 @@ h2 { font-size: 40px; }
 .color-5 { background-color: #47b3d1; }
 */
 
+// NAV
+
+#ribbons {
+  a { 
+    display:block; width:101px; height:200px; position:absolute; top:-20px; background:url(/images/ribbons.png) no-repeat scroll 0 0;
+    &:hover { top:0; text-transform:none; text-decoration:none; }
+  } 
+  .api     { right: 323px; }
+  .mapa    { right: 212px; background-position-x: -102px; }
+  .alertas { right: 101px; background-position-x: -202px; }
+}
+
 // HINTS SECTION
 section#hints { border-bottom: 1px solid #d2d2d2; padding: 50px 0; }
 section#hints .inner-section::after {
