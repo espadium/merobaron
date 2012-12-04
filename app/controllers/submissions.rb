@@ -38,7 +38,7 @@ Merobaron.controllers :submissions do
     end
     
     @submissions = Submission.by_station(params[:station_number], params[:start_date].to_time, params[:end_date].to_time)
-    @submissions.to_json
+    @submissions.map { |s| s.to_json }.to_json
   end
 
   get :submissions_by_date, "/submissions/:start_date/:end_date" do
@@ -48,7 +48,7 @@ Merobaron.controllers :submissions do
     end
     
     @submissions = Submission.by_date(params[:start_date].to_time, params[:end_date].to_time)
-    @submissions.to_json
+    @submissions.map { |s| s.to_json }.to_json
   end
 
 end
