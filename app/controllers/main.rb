@@ -9,4 +9,12 @@ Merobaron.controllers :main do
     haml :'map/index'
   end
 
+  get :api, map: "/api" do
+    haml :'api/static'
+  end
+
+  get :notifications, map: '/alertas' do
+    haml :'notifications/register'
+  end
+
 end
