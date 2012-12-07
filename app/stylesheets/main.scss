@@ -55,14 +55,8 @@ h2 { font-size: 40px; }
 .information {
   a { display:block; }
 }
-.map-container { height: 250px; position: relative; z-index: 9999;
-  -moz-animation: shrink-me 2s forwards 1;
-  -webkit-animation: shrink-me 2s forwards 1;
-}
-.map-container:hover {
-  -moz-animation: stretch-me 2s forwards 1;
-  -webkit-animation: stretch-me 2s forwards 1;
-}
+.map-container { height: 250px; position: relative; z-index: 9999;}
+
 .question-wrapper > h2 { margin-top: 0; margin-bottom: 35px; }
 .question-content {
   div[class^="item"] { margin-bottom: 10px; }
