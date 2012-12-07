@@ -60,10 +60,12 @@ def save_edit_items(items, question)
     item = Item.where(name: item[:name]).first
     if item
       puts "Updating item #{item[:name]}"
+      puts "The suggestion is #{item[:suggestion]}"
       item.update_all(title:item[:title], name:item[:name], label:item[:label], suggestion:item[:suggestion])
       item.save
     else
       puts "Creating item #{item[:name]}"
+      puts "The suggestion is #{item[:suggestion]}"
       item = Item.new(title:item[:title], name:item[:name], label:item[:label], suggestion:item[:suggestion])
       item.save
       question.add_item(item)
