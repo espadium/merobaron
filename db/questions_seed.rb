@@ -47,7 +47,7 @@ questions = [
   },
   { title: "Testigos", name: "testigos", label: "Habia alguien cerca?", order: 7,
     items: [
-      { title: "Un amigo", name: "un_amigo_testigo", label: "Si, un amigo/a", suggestion: "Es posible que tu amigo pueda ser llamado como testigo, deberias comentarselo y preguntarle si esta dispuesto a hacerlo, en el caso de que sea necesario" },
+      { title: "Un amigox", name: "un_amigo_testigo", label: "Si, un amigo/a", suggestion: "Es posible que tu amigo pueda ser llamado como testigo, deberias comentarselo y preguntarle si esta dispuesto a hacerlo, en el caso de que sea necesario" },
       { title: "Varios conocidos", name: "varios_testigos_conocidos", label: "Si, habian varios conocidos", suggestion: "Es posible que tus amigos puedan ser llamados como testigos, deberias comentarselo y preguntarles si estarian dispuestos a hacerlo, en el caso de que sea necesario" },
       { title: "Desconocidos", name: "testigos_desconocidos", label: "Si, habia otras personas pero no las conocia", suggestion: "Es probable que la policia te pregunte sobre como eran las personas que presenciaron el incidente. Seria de utilidad que anotes todo lo que recuerdes de ellos si es que tienes pensado ir mas tarde u otro dia." },
       { title: "Solo", name: "sin_testigos", label: "No, estaba solo" }
@@ -55,15 +55,29 @@ questions = [
   }
 ]
 
-questions.each do |data|
-  old = Question.where(name:data[:name]).first
-  old.delete unless old.nil?
-  q = Question.new(title:data[:title], name:data[:name], label:data[:label], is_multi_option:data[:is_multi_option])
-  q.save
-  data[:items].each do |item|
-    item = Item.new(title:item[:title], name:item[:name], label:item[:label])
-    item.save
-    q.add_item(item)
-    q.save
+def save_edit_items(items, question)
+  items.each do |item|
+    item = Item.where(name: item[:name]).first
+    if item
+      item.update_all(title:item[:title], name:item[:name], label:item[:label], suggestion:item[:suggestion])
+      item.save
+    else
+      item = Item.new(title:item[:title], name:item[:name], label:item[:label], suggestion:item[:suggestion])
+      item.save
+      question.add_item(item)
+      question.save
+    end
   end
+end
+
+questions.each do |data|
+  question = Question.where(name:data[:name]).first
+  if question 
+    question.update_all(title:data[:title], name:data[:name], label:data[:label], is_multi_option:data[:is_multi_option], order:data[:order])
+    question.save
+  else
+    question = Question.new(title:data[:title], name:data[:name], label:data[:label], is_multi_option:data[:is_multi_option], order:data[:order])
+    question.save
+  end
+  save_edit_items(data[:items],question)
 end

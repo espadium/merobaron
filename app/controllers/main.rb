@@ -1,7 +1,7 @@
 Merobaron.controllers :main do
 
   get :index, map: "/" do
-    questions = Question.all
+    questions = Question.order(:order)
     haml :'index', locals: { questions: questions }
   end
 
