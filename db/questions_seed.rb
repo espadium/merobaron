@@ -57,14 +57,16 @@ questions = [
 
 def save_edit_items(items, question)
   items.each do |item|
-    existing_item = Item.where(name: item[:name]).first
-    if existing_item
-      existing_item.update_all(title: existing_item[:title], name: existing_item[:name], label: existing_item[:label], suggestion: existing_item[:suggestion])
-      existing_item.save
+    item = Item.where(name: item[:name]).first
+    if item
+      puts "Updating item #{item[:name]}"
+      item.update_all(title:item[:title], name:item[:name], label:item[:label], suggestion:item[:suggestion])
+      item.save
     else
-      new_item = Item.new(title: item[:title], name: item[:name], label: item[:label], suggestion: item[:suggestion])
-      new_item.save
-      question.add_item(new_item)
+      puts "Creating item #{item[:name]}"
+      item = Item.new(title:item[:title], name:item[:name], label:item[:label], suggestion:item[:suggestion])
+      item.save
+      question.add_item(item)
       question.save
     end
   end
@@ -73,9 +75,11 @@ end
 questions.each do |data|
   question = Question.where(name:data[:name]).first
   if question 
+    puts "Updating question #{data[:name]}"
     question.update_all(title:data[:title], name:data[:name], label:data[:label], is_multi_option:data[:is_multi_option], order:data[:order])
     question.save
   else
+    puts "Creating question #{data[:name]}"
     question = Question.new(title:data[:title], name:data[:name], label:data[:label], is_multi_option:data[:is_multi_option], order:data[:order])
     question.save
   end
