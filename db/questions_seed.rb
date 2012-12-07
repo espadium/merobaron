@@ -59,9 +59,11 @@ def save_edit_items(items, question)
   items.each do |item|
     item = Item.where(name: item[:name]).first
     if item
+      puts "Updating item #{item[:name]}"
       item.update_all(title:item[:title], name:item[:name], label:item[:label], suggestion:item[:suggestion])
       item.save
     else
+      puts "Creating item #{item[:name]}"
       item = Item.new(title:item[:title], name:item[:name], label:item[:label], suggestion:item[:suggestion])
       item.save
       question.add_item(item)
@@ -73,9 +75,11 @@ end
 questions.each do |data|
   question = Question.where(name:data[:name]).first
   if question 
+    puts "Updating question #{data[:name]}"
     question.update_all(title:data[:title], name:data[:name], label:data[:label], is_multi_option:data[:is_multi_option], order:data[:order])
     question.save
   else
+    puts "Creating question #{data[:name]}"
     question = Question.new(title:data[:title], name:data[:name], label:data[:label], is_multi_option:data[:is_multi_option], order:data[:order])
     question.save
   end
