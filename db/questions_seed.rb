@@ -57,14 +57,14 @@ questions = [
 
 def save_edit_items(items, question)
   items.each do |item|
-    item = Item.where(name: item[:name]).first
-    if item
-      item.update_all(title:item[:title], name:item[:name], label:item[:label], suggestion:item[:suggestion])
-      item.save
+    existing_item = Item.where(name: item[:name]).first
+    if existing_item
+      existing_item.update_all(title: existing_item[:title], name: existing_item[:name], label: existing_item[:label], suggestion: existing_item[:suggestion])
+      existing_item.save
     else
-      item = Item.new(title:item[:title], name:item[:name], label:item[:label], suggestion:item[:suggestion])
-      item.save
-      question.add_item(item)
+      new_item = Item.new(title: item[:title], name: item[:name], label: item[:label], suggestion: item[:suggestion])
+      new_item.save
+      question.add_item(new_item)
       question.save
     end
   end
