@@ -55,14 +55,8 @@ h2 { font-size: 40px; }
 .information {
   a { display:block; }
 }
-.map-container { height: 250px; position: relative; z-index: 9999;
-  -moz-animation: shrink-me 2s forwards 1;
-  -webkit-animation: shrink-me 2s forwards 1;
-}
-.map-container:hover {
-  -moz-animation: stretch-me 2s forwards 1;
-  -webkit-animation: stretch-me 2s forwards 1;
-}
+.map-container { height: 250px; position: relative; z-index: 9999;}
+
 .question-wrapper > h2 { margin-top: 0; margin-bottom: 35px; }
 .question-content {
   div[class^="item"] { margin-bottom: 10px; }
@@ -85,12 +79,12 @@ h2 { font-size: 40px; }
 
 #ribbons {
   a { 
-    display:block; width:101px; height:200px; position:absolute; top:-20px; background:url(/images/ribbons.png) no-repeat scroll 0 0;
+    display:block; width:64px; height:126px; position:absolute; top:-20px; background:url(/images/ribbons.png) no-repeat scroll 0 0;
     &:hover { top:0; text-transform:none; text-decoration:none; }
   } 
-  .api     { right: 323px; }
-  .mapa    { right: 212px; background-position-x: -102px; }
-  .alertas { right: 101px; background-position-x: -202px; }
+  .api     { right: 190px; }
+  .mapa    { right: 110px; background-position-x: -64px; }
+  .alertas { right: 30px; background-position-x: -128px; }
 }
 
 // HINTS SECTION
