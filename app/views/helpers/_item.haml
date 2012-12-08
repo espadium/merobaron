@@ -1,7 +1,9 @@
 %div{ class: "item-#{item.id} #{item.name}" }
   - if question.is_multi_option.nil? || !question.is_multi_option
-    %input{ type: 'radio', name: "item_#{question.name}", value: item.id }
+    %input{ type: 'radio', name: "item_#{question.name}", id: "item_#{question.name}_#{item.id}", value: item.id }
+    %label{ for: "item_#{question.name}_#{item.id}" }
+      = item.label
   - else
-    %input{ type: 'checkbox', name: "item_#{item.name}", value: item.id }
-  %label{ for: "item_#{item.id}" } 
-    = item.label
+    %input{ type: 'checkbox', name: "item_#{item.name}", id: "item_#{item.name}", value: item.id }
+    %label{ for: "item_#{item.name}" }
+      = item.label
