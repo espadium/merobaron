@@ -13,9 +13,11 @@ Admin.controllers :questions do
   post :create do
     @question = Question.new(params[:question])
     if (@question.save rescue false)
-      params[:options].each do |option|
-        option = Item.new(option.merge({question_id: @question.id}))
-        option.save
+      if params[:options]
+        params[:options].each do |option|
+          option = Item.new(option.merge({question_id: @question.id}))
+          option.save
+        end
       end
       flash[:notice] = 'Question was successfully created.'
       redirect url(:questions, :edit, :id => @question.id)
