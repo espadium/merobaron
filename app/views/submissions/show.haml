@@ -1,6 +1,9 @@
 %section#submissions
   .inner-section
     %h1 Informacion 
+    %h2 Jefatura responsable
+    .information
+      %p #{@submission.station_info}
     - unless @suggestions.empty?
       %h4 Sugerencias
       %ul
