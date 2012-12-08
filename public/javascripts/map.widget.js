@@ -64,6 +64,7 @@ $.widget("meRobaron.mapWidget", {
                 title:"Aqui me robaron!"
               });
 
+              marker.setIcon("/images/icons/theft.png");
               var latlang = +event.latLng.lat()+","+event.latLng.lng(); 
 
               // To add the marker to the map, call setMap();
@@ -170,6 +171,7 @@ $.widget("meRobaron.mapStatsWidget", {
                   draggable:true,
                   title: submission.happened_at
                 });
+                marker.setIcon("/images/icons/theft.png");
 
                 marker.setMap(self.map);
 
