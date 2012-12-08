@@ -3,6 +3,10 @@ require 'json'
 class Submission < Sequel::Model
   many_to_many :items
 
+  def station_info
+    "Para hacer la denuncia deber&aacute;s dirigirte a la seccional #{self.station_number} de Montevideo"
+  end
+
   def self.by_station(station_number, start_date, end_date)
     where( station_number: station_number, happened_at: start_date..end_date ).all
   end
